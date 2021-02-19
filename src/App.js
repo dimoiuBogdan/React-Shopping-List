@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+import Input from "./components/Input";
+import Items from "./components/Items";
+
+export default function App() {
+  const [itemDescription, setItemDescription] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
+  const [items, setItems] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex justify-center w-screen text-center">
+      <div id="box" className=" w-2/4">
+        <h1 className="text-7xl text-yellow-500 py-24 pb-12">Shopping List</h1>
+        <Input
+          setItemDescription={setItemDescription}
+          itemDescription={itemDescription}
+          setItems={setItems}
+          items={items}
+          itemPrice={itemPrice}
+          setItemPrice={setItemPrice}
+        />
+        <Items items={items} setItems={setItems} />
+      </div>
     </div>
   );
 }
-
-export default App;
