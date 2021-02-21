@@ -19,16 +19,7 @@ export default function Items(props) {
   return (
     <div>
       {props.items.map((item) => {
-        return (
-          <Item
-            key={item.id}
-            id={item.id}
-            description={item.description}
-            price={item.price}
-            setItems={props.setItems}
-            items={props.items}
-          />
-        );
+        return <Item key={item.id} {...item} {...props} />;
       })}
       <h2 className="text-white font-semibold text-3xl mt-8">
         Total: {total}$
